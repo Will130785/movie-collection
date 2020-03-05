@@ -4,14 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Collection</title>
+
+    <!-- Bootstrap stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
     <!-- Custom CSS stylesheets -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Landing section -->
+    <section class="landing">
+        
+    </section>
+
+    <!-- Search box -->
+    <div class="container">
+        <div class="card card-body">
+            <h1>Search Movies</h1>
+            <h2>Enter the name of a movie</h2>
+            <form class="form-group">
+                <input id="searchInput" class="form-control" type="text" placeholder="Enter movie name">
+                <button id="searchBtn" class="btn btn-large btn-primary mt-3">Search</button>
+            </form>
+        </div>
+        <!-- Search result -->
+        <div class="row searchContainer">
+            <!-- <div class="col-md-4">
+                <div class="card searchCard">
+                    <div class="card-body text-center">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzk1OGU2NmMtNTdhZC00NjdlLWE5YTMtZTQ0MGExZTQzOGQyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" class="searchPic">
+                    </div>
+                    <div class="card-footer">
+                        <h4>Halloween(1978)</h4>
+                        <p><span class="director">Director: </span>John Carpenter</p>
+                        <p><span class="starring">Starring: </span>Donald Pleasence, Jamie Lee Curtis, Tony Moran</p>
+                        <button class="btn btn-sm btn-success">Add to collection</button>
+                        <button class="btn btn-sm btn-warning">Add to wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card searchCard">
+                    <div class="card-body text-center">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzk1OGU2NmMtNTdhZC00NjdlLWE5YTMtZTQ0MGExZTQzOGQyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" class="searchPic">
+                    </div>
+                    <div class="card-footer">
+                        <h4>Halloween(1978)</h4>
+                        <p><span class="director">Director: </span>John Carpenter</p>
+                        <p><span class="starring">Starring: </span>Donald Pleasence, Jamie Lee Curtis, Tony Moran</p>
+                        <button class="btn btn-sm btn-success">Add to collection</button>
+                        <button class="btn btn-sm btn-warning">Add to wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card searchCard">
+                    <div class="card-body text-center">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNzk1OGU2NmMtNTdhZC00NjdlLWE5YTMtZTQ0MGExZTQzOGQyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" class="searchPic">
+                    </div>
+                    <div class="card-footer">
+                        <h4>Halloween(1978)</h4>
+                        <p><span class="director">Director: </span>John Carpenter</p>
+                        <p><span class="starring">Starring: </span>Donald Pleasence, Jamie Lee Curtis, Tony Moran</p>
+                        <button class="btn btn-sm btn-success">Add to collection</button>
+                        <button class="btn btn-sm btn-warning">Add to wishlist</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+
+        
+
+    <!-- Collection box -->
+    <div class="container collectionContainer">
+        <div class="card card-body">
+            <h2>Movie Collection</h2>
+            <div class="container movieContainer">
+                <!-- Collection item card -->
+        <div class="card collectionItem">
+            <!-- Card Header section -->
+            <div class="card-head itemHeader p-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Halloween(1978)</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>7.8</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Rate this</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Body section -->
+            <div class="card-body itemBody p-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="itemPic">
+                            <img src="https://m.media-amazon.com/images/M/MV5BNzk1OGU2NmMtNTdhZC00NjdlLWE5YTMtZTQ0MGExZTQzOGQyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" class="cover" alt="Poster image">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="itemTrailer">
+                            <img src="https://m.media-amazon.com/images/M/MV5BYTcxNGNjNDctZjYxNy00MWJjLTgzMGEtZGE5YTA3ZWEwYTUzXkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,30,250,141_AL_UX477_CR0,0,477,268_AL_.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <p class="itemDescription mt-5">Fifteen years after murdering his sister on Halloween night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois to kill again. </p>
+                    <p><span class="director">Director: </span>John Carpenter</p>
+                    <p><span class="writer">Writer: </span> John Carpenter (screenplay), Debra Hill (screenplay) </p>
+                    <p><span class="starring">Starring: </span>Donald Pleasence, Jamie Lee Curtis, Tony Moran</p>
+                </div>
+            </div>
+
+            <!-- Card footer section -->
+            <div class="card-footer itemFooter">
+                <button class="btn btn-lg btn-success">Add to collection</button>
+                <button class="btn btn-lg btn-warning">Add to wishlist</button>
+            </div>
+
+        </div>
+    </div>
+                
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Box -->
+    <div class="container wishlistContainer">
+        <div class="card card-body">
+            <h2>Wishlist</h2>
+            <div class="container wishlistItemContainer">
+
+
+            </div>
+        </div>
+    </div>
     
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
+    <script src="js/localstorage.js"></script>
+    <script src="js/movie-request.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

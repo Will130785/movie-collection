@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.searchPic {
+  width: 100%; }
+
+.landing {
+  height: 100vh;
+  background-image: url(../../img/denise-jans-Lq6rcifGjOU-unsplash.jpg);
+  background-size: cover; }
