@@ -25,6 +25,9 @@ base {
 .card-det {
   flex-direction: column; }
 
+.itemPic {
+  width: 100%; }
+
 .landing {
   height: 100vh;
   background-image: url(../../img/denise-jans-Lq6rcifGjOU-unsplash.jpg);
