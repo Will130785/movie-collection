@@ -30,7 +30,7 @@ class UI {
     }
 
     //Method to display collection item in ui
-    createItem(title, rate, tag, poster, back, desc, run, budg, container) {
+    createItem(id, title, rate, tag, poster, back, desc, run, budg, container) {
 
         //create html variable and insert data
         const collectionHTML = `
@@ -66,8 +66,9 @@ class UI {
                 </div>
             </div>
             <div class="card-footer itemFooter">
-                <button class="btn btn-lg btn-success">Add to collection</button>
-                <button class="btn btn-lg btn-danger">Remove movie</button>
+                <button class="btn btn-lg btn-success addBtn">Add to collection</button>
+                <div class="id">${id}</div>
+                <button class="btn btn-lg btn-danger removeBtn">Remove movie</button>
             </div>
 
         </div>
@@ -76,13 +77,4 @@ class UI {
         //Insert html into UI
         container.insertAdjacentHTML("beforeend", collectionHTML)
     }
-
-    // displayCollectionItem() {
-    //     collectionContainer.insertAdjacentHTML("beforeend", collectionHTML)
-
-    // }
-
-    // displayWishlistItem() {
-    //     wishlistContainer.insertAdjacentHTML("beforeend", collectionHTML)
-    // }
 }

@@ -10,16 +10,23 @@ const searchContainer = document.querySelector(".searchContainer");
 //Get collection container
 const collectionContainer = document.querySelector(".movieContainer");
 //Get wishlist container
-const wishlistContainer = document.querySelector(".wishlistContainer");
+const wishlistContainer = document.querySelector(".wishlistItemContainer");
 //Init new movie object
 const movie = new Movie();
 //Init new UI object
 const ui = new UI();
+//Init new storage object
+const storage = new Storage();
 //collection object
 let movieObject = {};
-
+//Initiate id variables to pass into add item
 let collectionId;
 let wishlistId;
+
+//Load items in storage and display in UI
+document.addEventListener("DOMContentLoaded", () => {
+    storage.displayItemsInUI();
+});
 
 
 //function to make HTTP request and display search results
@@ -51,9 +58,6 @@ makeMovieRequest = e => {
     searchInput.value = "";
 
     });
-
-    
-    
 });
 
 }
@@ -65,6 +69,7 @@ addItem = (e, id) => {
             console.log(result);
             //Add data to movie object
             movieObject = {
+                id: result.id,
                 title: result.title,
                 rating: result.vote_average,
                 tagline: result.tagline,
@@ -75,26 +80,28 @@ addItem = (e, id) => {
                 budget: result.budget
             };
 
+
             if(e.target.classList.contains("collectionBtn")){
                 //make http request and handle data
-                
+                storage.addToLocalStorageCollection(movieObject);
                 console.log(movieObject);
-                ui.createItem(movieObject.title, movieObject.rating, movieObject.tagline, movieObject.poster, movieObject.backdrop, movieObject.overview, movieObject.runtime, movieObject.budget, collectionContainer);
+                ui.createItem(movieObject.id, movieObject.title, movieObject.rating, movieObject.tagline, movieObject.poster, movieObject.backdrop, movieObject.overview, movieObject.runtime, movieObject.budget, collectionContainer);
             } else if(e.target.classList.contains("wishlistBtn")){
                 //make http request and handle data
-                
+                storage.addToLocalStorageWishlist(movieObject);
                 console.log(movieObject);
-                ui.createItem(movieObject.title, movieObject.rating, movieObject.tagline, movieObject.poster, movieObject.backdrop, movieObject.overview, movieObject.runtime, movieObject.budget, wishlistContainer);
+                ui.createItem(movieObject.id, movieObject.title, movieObject.rating, movieObject.tagline, movieObject.poster, movieObject.backdrop, movieObject.overview, movieObject.runtime, movieObject.budget, wishlistContainer);
             }
-
-
-            
-            //call displayCollectionItem method and pass in data from movieObject
-            // ui.createItem(movieObject.title, movieObject.rating, movieObject.tagline, movieObject.poster, movieObject.backdrop, movieObject.overview, movieObject.runtime, movieObject.budget);
 
         })
 
 }
+
+//Function to remove item from collection or wishlist
+removeItem = (e) => {
+    //remove item from UI
+    e.target.parentElement.parentElement.remove();
+};
 
 //Event listener for search button
 searchBtn.addEventListener("click", makeMovieRequest);
@@ -110,7 +117,6 @@ searchInput.addEventListener("keypress", e => {
 
 //Event listener for Add to collection button
 searchContainer.addEventListener("click", e => {
-    console.log(e.target.previousElementSibling.textContent);
     //Check user has clicked add to collection button
     if(e.target.classList.contains("collectionBtn")){
         //make http request and handle data
@@ -121,12 +127,51 @@ searchContainer.addEventListener("click", e => {
 
 //Event listener for Add to wishlist button
 searchContainer.addEventListener("click", e => {
-    console.log(e.target.previousElementSibling.textContent);
     //Check user has clicked add to collection button
     if(e.target.classList.contains("wishlistBtn")){
         //make http request and handle data
         wishlistId = e.target.previousElementSibling.previousElementSibling.textContent;
         addItem(e, wishlistId);
+    }
+
+    
+})
+
+//Event listener for remove from collection button
+collectionContainer.addEventListener("click", e => {
+    //Check user has clicked remove button
+    if(e.target.classList.contains("removeBtn")){
+        //remove item
+        removeItem(e);
+        //Remove from local storage
+        let idNumber = Number(e.target.previousElementSibling.textContent);
+        storage.removeFromLocalStorage(idNumber);
+    }
+});
+
+//Event listener for remove from wishlist button or add to collection button
+wishlistContainer.addEventListener("click", e => {
+    //Check user has clicked remove button
+    if(e.target.classList.contains("removeBtn")){
+        //remove item
+        removeItem(e);
+        //Remove from local storage
+        let idNumber = Number(e.target.previousElementSibling.textContent);
+        storage.removeFromLocalStorage(idNumber);
+    
+    } 
+    //Check user clicked add to collection button
+    else if(e.target.classList.contains("addBtn")) {
+        //Insert item into collection
+        collectionContainer.insertAdjacentHTML("beforeend", e.target.parentElement.parentElement.innerHTML);
+        //Remove item from wishlist
+        removeItem(e);
+        //Remove from wishlist local storage
+        let idNumber = Number(e.target.nextElementSibling.textContent);
+        storage.removeFromLocalStorage(idNumber);
+
+        //add to collection local storage
+        storage.addToLocalStorageCollection(movieItem);
     }
 
     
