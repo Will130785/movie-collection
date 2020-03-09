@@ -1,4 +1,10 @@
 //UI variables
+//Get launch button
+const launchBtn = document.querySelector(".btn-launch");
+//Get landing section
+const landingSection = document.querySelector(".landing");
+//Get main section
+const mainSection = document.querySelector(".main");
 //Get search input
 const searchInput = document.querySelector("#searchInput");
 //Get search button
@@ -183,4 +189,10 @@ clearBtn.addEventListener("click", e => {
     e.preventDefault();
     //Clear search results
     searchContainer.innerHTML = "";
+});
+
+//To open app
+launchBtn.addEventListener("click", () => {
+    landingSection.style.display = "none";
+    mainSection.style.display = "block";
 })

@@ -1,22 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
-.searchPic {
-  width: 100%; }
+html {
+  font-size: 100%; }
+  @media only screen and (max-width: 900px) {
+    html {
+      font-size: 62.5%; } }
+  @media only screen and (max-width: 500px) {
+    html {
+      font-size: 50%; } }
+
+base {
+  font-family: 'Anton', sans-serif; }
 
 .id {
   display: none; }
 
+.btn-launch {
+  margin-bottom: 4rem; }
+
 .card-det {
   flex-direction: column; }
-
-.background {
-  width: 100%;
-  height: 100%; }
 
 .landing {
   height: 100vh;
   background-image: url(../../img/denise-jans-Lq6rcifGjOU-unsplash.jpg);
-  background-size: cover; }
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  position: relative; }
+
+.title {
+  position: relative;
+  top: 40%; }
+  .title__main {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #e6b517;
+    text-shadow: 0.1rem 0.2rem 0.2rem black; }
+
+.main {
+  display: none; }
+
+.searchPic {
+  width: 100%;
+  height: 100%; }
