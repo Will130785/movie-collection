@@ -15,8 +15,8 @@ class UI {
             </div>
             <div class="card-footer">
                 <h4>${title}</h4>
-                <p><span class="director">Director: </span>${date}</p>
-                <p><span class="starring">Starring: </span>${rate}</p>
+                <p><span class="director">Date of release: </span>${date}</p>
+                <p><span class="starring">Rating: </span>${rate}</p>
                 <p class="id">${id}</p>
                 <button class="btn btn-sm btn-success collectionBtn">Add to collection</button>
                 <button class="btn btn-sm btn-warning wishlistBtn">Add to wishlist</button>
